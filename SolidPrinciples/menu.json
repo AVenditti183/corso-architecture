@@ -1,0 +1,80 @@
+[
+    {
+      "Descrizione": "Prodotti",
+      "Command": "p",
+      "SubMenu": [
+        {
+          "Descrizione": "Ricerca",
+          "Command": "r",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Aggiungi",
+          "Command": "a",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Modifica",
+          "Command": "m",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Cancella",
+          "Command": "c",
+          "SubMenu": null
+        }
+      ]
+    },
+    {
+      "Descrizione": "Magazzino",
+      "Command": "m",
+      "SubMenu": [
+        {
+          "Descrizione": "Ricerca",
+          "Command": "r",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Aggiungi",
+          "Command": "a",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Modifica",
+          "Command": "m",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Cancella",
+          "Command": "c",
+          "SubMenu": null
+        }
+      ]
+    },
+    {
+      "Descrizione": "Clienti",
+      "Command": "c",
+      "SubMenu": [
+        {
+          "Descrizione": "Ricerca",
+          "Command": "r",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Aggiungi",
+          "Command": "a",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Modifica",
+          "Command": "m",
+          "SubMenu": null
+        },
+        {
+          "Descrizione": "Cancella",
+          "Command": "c",
+          "SubMenu": null
+        }
+      ]
+    }
+  ]

@@ -11,7 +11,7 @@ namespace PatternCreazionali
             IFactoryAnimal factory = new FactoryAnimal();
 
             var animal = factory.GetInstance("Leon");
-            Console.WriteLine(animal.Voice());
+           // Console.WriteLine(animal.Voice());
 
             
             #region  Singleton
@@ -23,7 +23,7 @@ namespace PatternCreazionali
             #endregion
 
             #region lazyLoad
-            //var snake = new Snake();
+            var snake = new Snake();
             //Console.WriteLine(snake.Terrain.Id);
             #endregion
 
@@ -31,12 +31,14 @@ namespace PatternCreazionali
             var hamster1 = new Hamster();
             hamster1.Age = 10;
             var hamster2 = hamster1.Clone();
+            hamster2.Age = 30;
 
-            //Console.WriteLine(hamster1.Age == hamster2.Age);
-            //Console.WriteLine(hamster1 == hamster2);
+            Console.WriteLine(hamster1.Age == hamster2.Age);
+            Console.WriteLine(hamster1 == hamster2);
             #endregion
             
             #region IoC
+            Console.Clear();
             var services = new ServiceCollection();
             services.AddScoped<Dog>();
             services.AddScoped<Cat>();
@@ -54,13 +56,13 @@ namespace PatternCreazionali
 
             var factoryIoC = serviceProvider.GetService<IFactoryAnimal>();
             var animalIoC = factoryIoC.GetInstance("Panda");
-            //Console.WriteLine(animalIoC.Voice());
+            Console.WriteLine(animalIoC.Voice());
 
             #region  Singleton
             var water1 = serviceProvider.GetService<Water>();
             var water2 = serviceProvider.GetService<Water>();
 
-            //Console.WriteLine(water1.Equals(water2));
+            Console.WriteLine(water1.Equals(water2));
 
             #endregion
 
@@ -119,7 +121,11 @@ namespace PatternCreazionali
     public class Leon : IAnimal
     {
         private Leon() { }
-        public static Leon CreateLeon() => new Leon();
+        public static Leon CreateLeon()
+        {
+            // una serie di operazioni prima della creazione
+            return new Leon();
+        }
 
         public string Voice()
         {
@@ -202,7 +208,7 @@ namespace PatternCreazionali
             {
                 Console.WriteLine(_Terrain is null);
                 if(_Terrain is null )
-                _Terrain = new Terrain();
+                    _Terrain = new Terrain();
 
                 Console.WriteLine(_Terrain is null);
                 return _Terrain;
@@ -222,7 +228,7 @@ namespace PatternCreazionali
     #region Prototype
     public class Hamster : IAnimal
     {
-        public int Age {get;set;}
+        public int Age {get; set;}
         public string Voice()
         {
             return "Squit";
@@ -239,7 +245,7 @@ namespace PatternCreazionali
 
     public class FactoryAnimalIoC : IFactoryAnimal
     {
-        private IServiceProvider provider;
+        private readonly IServiceProvider provider;
         public FactoryAnimalIoC(IServiceProvider provider)
         {
             this.provider = provider;

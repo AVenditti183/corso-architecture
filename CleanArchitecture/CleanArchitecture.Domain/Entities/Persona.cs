@@ -5,6 +5,11 @@ namespace CleanArchitecture.Domain.Entities
 {
     public class Persona
     {
+        public Persona()
+        {
+            RichiesteInCorso = new List<RichiesteAmicizia>();
+            Amici = new List<Persona>();
+        }
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cognome { get; set; }

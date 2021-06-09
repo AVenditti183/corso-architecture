@@ -5,6 +5,7 @@ namespace CleanArchitecture.Business
 {
     public interface IPersonService
     {
+        Persona Get(int id);
         List<Persona> Search(string citta);
         List<Persona> MieiAmici(int personaId);
         void RichiediAmicizia(int personaRichiedenteId, int amicoPotenzialeId);

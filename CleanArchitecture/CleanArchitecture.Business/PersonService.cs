@@ -16,6 +16,11 @@ namespace CleanArchitecture.Business
             this.repository = repository;
         }
 
+        public Persona Get(int id)
+        {
+            return repository.Get(id);
+        }
+
         public List<Persona> MieiAmici(int personaId)
         {
             var persona = repository.Get(personaId);
